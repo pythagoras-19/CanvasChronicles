@@ -22,4 +22,4 @@ Welcome to "Canvas Chronicles", a vibrant intersection of art, technology, and p
 
 ## Getting Started
 
-Detailed instructions for setting up and running the project locally are available in the README. Whether you're here to explore the intersection of art and technology or to contribute to a growing art blog platform, "Canvas Chronicles" offers a unique perspective on how technology can enhance artistic expression.
+Whether you're here to explore the intersection of art and technology or to contribute to a growing art blog platform, "Canvas Chronicles" offers a unique perspective on how technology can enhance artistic expression.
