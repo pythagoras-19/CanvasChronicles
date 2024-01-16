@@ -77,3 +77,4 @@
 /Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/obj/Debug/net7.0/PersonalBlog2.pdb
 /Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/obj/Debug/net7.0/PersonalBlog2.genruntimeconfig.cache
 /Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/obj/Debug/net7.0/ref/PersonalBlog2.dll
+/Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/obj/Debug/net7.0/PersonalBlog2.sourcelink.json
