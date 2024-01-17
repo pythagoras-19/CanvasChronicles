@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FXc+Oy/AoU/RqUdfg2ett5iyaQBTJSu25sO81VDEnLM=",
+  "Hash": "S/LgA1GeTj8JUXOBQKk34eHenYpGwjH0oXt1zunf7H4=",
   "Source": "PersonalBlog2",
   "BasePath": "_content/PersonalBlog2",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/wwwroot/images/homepage_1.png",
+      "SourceId": "PersonalBlog2",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/wwwroot/",
+      "BasePath": "_content/PersonalBlog2",
+      "RelativePath": "images/homepage_1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/homepage_1.png"
     },
     {
       "Identity": "/Users/mattc/RiderProjects/PersonalBlog2/PersonalBlog2/wwwroot/js/site.js",
