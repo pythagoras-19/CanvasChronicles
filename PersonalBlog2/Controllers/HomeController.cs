@@ -17,7 +17,27 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    
+    public IActionResult CreatePost()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public IActionResult CreatePost(Post post)
+    {
+        if (ModelState.IsValid)
+        {
+            // TODO: Save post to database
+            _logger.LogInformation("Title: {Title}", post.Title);
+            _logger.LogInformation("Content: {Content}", post.Content);
+            
+            return RedirectToAction("Index");
+        }
+        
+        return View(post);
+    }
+    
     public IActionResult Privacy()
     {
         return View();
