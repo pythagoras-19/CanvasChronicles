@@ -1,3 +1,6 @@
+.env
+AppSettingsSecrets.config
+
 # Default ignored files
 /shelf/
 /workspace.xml
