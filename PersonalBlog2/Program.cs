@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 string dbPassword = Environment.GetEnvironmentVariable("DBPASSWORD");
+
 if (!string.IsNullOrEmpty(dbPassword))
 {
     connectionString += $"Password={dbPassword};";
