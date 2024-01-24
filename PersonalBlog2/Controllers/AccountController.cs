@@ -28,7 +28,6 @@ public class AccountController : Controller
 
         if (result.Succeeded)
         {
-            // If successful, redirect to the home page or a return URL if you have one
             return RedirectToAction("Index", "Home");
         }
         else
@@ -38,4 +37,32 @@ public class AccountController : Controller
             return View();
         }
     }
+    
+    // Register
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = new ApplicationUserModel { UserName = model.Email };
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                //  TODO: Log the user in or redirect to a different page
+                //  TODO: return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+        }
+
+        // If we got this far, something failed, redisplay form
+        return View(model);
+    }
+
 }
