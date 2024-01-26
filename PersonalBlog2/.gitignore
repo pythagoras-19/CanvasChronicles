@@ -1,5 +1,6 @@
 .env
 AppSettingsSecrets.config
+notes.txt
 
 # Default ignored files
 /shelf/

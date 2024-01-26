@@ -3,7 +3,7 @@ using PersonalBlog2.Data;
 using PersonalBlog2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
+/*
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 string dbPassword = Environment.GetEnvironmentVariable("DBPASSWORD");
@@ -12,9 +12,14 @@ if (!string.IsNullOrEmpty(dbPassword))
 {
     connectionString += $"Password={dbPassword};";
 }
+*/
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+/*
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+*/
 
 builder.Services.AddDefaultIdentity<ApplicationUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
