@@ -18,7 +18,7 @@ Welcome to "Canvas Chronicles", a vibrant intersection of art, technology, and p
 - **C#**: The primary programming language, enabling strong type-checking and object-oriented capabilities.
 - **Entity Framework Core**: For ORM, simplifying data access and manipulation.
 - **Bootstrap**: For responsive front-end design, ensuring the blog looks great on any device.
-- **SQL Server/SQLite**: The database technology.
+- **Postgresql**: The database technology.
 
 ## Getting Started
 
