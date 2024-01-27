@@ -38,7 +38,6 @@ public class AccountController : Controller
             return View();
         }
     }
-    
     // Register
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
