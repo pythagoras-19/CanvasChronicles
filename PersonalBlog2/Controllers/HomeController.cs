@@ -23,6 +23,7 @@ public class HomeController : Controller
         return View();
     }
     
+    // TODO: FIX ME
     [HttpPost]
     public IActionResult CreatePost(Post post)
     {
