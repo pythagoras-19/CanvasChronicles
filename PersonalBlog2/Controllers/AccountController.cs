@@ -9,7 +9,8 @@ public class AccountController : Controller
 {
     private readonly UserManager<ApplicationUserModel> _userManager;
     private readonly SignInManager<ApplicationUserModel> _signInManager;
-    public AccountController(UserManager<ApplicationUserModel> userManager, SignInManager<ApplicationUserModel> signInManager)
+    public AccountController(UserManager<ApplicationUserModel> userManager, 
+        SignInManager<ApplicationUserModel> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
