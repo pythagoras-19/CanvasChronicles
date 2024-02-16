@@ -9,10 +9,9 @@ public class ArtGenerationService : BackgroundService
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            // Logic to generate AI art
             GenerateAiArt();
 
-            // Wait for a defined period before generating next art
+            // Wait defined period before generating next art
             await Task.Delay(TimeSpan.FromHours(1), stoppingToken);
         }
     }
@@ -20,6 +19,6 @@ public class ArtGenerationService : BackgroundService
     private void GenerateAiArt()
     {
         Console.WriteLine("Generating AI art...");
-        // TODO: Implement your logic to call the AI art generation API
+        // TODO: Implement logic to call art generation API
     }
 }
