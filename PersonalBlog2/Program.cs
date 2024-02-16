@@ -3,15 +3,23 @@ using PersonalBlog2.Data;
 using PersonalBlog2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Register DbContext and Identity
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.
-    AddDefaultIdentity<ApplicationUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services
+    .AddDefaultIdentity<ApplicationUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Register MVC
 builder.Services.AddControllersWithViews();
+
+// Register background service 
+builder.Services.AddHostedService<ArtGenerationService>(); 
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
