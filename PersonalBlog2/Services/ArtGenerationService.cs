@@ -61,6 +61,7 @@ public class ArtGenerationService : BackgroundService
     private void GenerateAiArt()
     {
         Console.WriteLine("Generating AI art...");
+        Task.Run(async () => await GenerateAiArtAsync()).Wait();
         // TODO: Implement logic to call art generation API
     }
 }
