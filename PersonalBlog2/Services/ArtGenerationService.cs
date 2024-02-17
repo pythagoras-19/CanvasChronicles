@@ -47,6 +47,8 @@ public class ArtGenerationService : BackgroundService
             else
             {
                 _logger.LogError($"Error generating AI art: {response.StatusCode} - {response.ReasonPhrase}");
+                var errorContent = await response.Content.ReadAsStringAsync();
+                _logger.LogError($"Error response from API: {errorContent}");
             }
         }
         catch (Exception ex)
