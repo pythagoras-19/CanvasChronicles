@@ -8,26 +8,33 @@
         background-color: #f4f4f4;
         margin: 0;
         padding: 0;
+        line-height: 1.6;
     }
 
     .main-container {
-        text-align: center;
-        margin-top: 50px;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .main-container h1 {
-        font-size: 3em;
+        font-size: 2.5em;
         color: #333;
+        margin-bottom: 0.5em;
     }
 
     .main-container p {
-        font-size: 1.2em;
+        font-size: 1.1em;
         color: #666;
+        line-height: 1.5;
     }
 
     .main-container a {
         color: #007bff;
         text-decoration: none;
+        font-weight: bold;
     }
 
     .main-container a:hover {
@@ -35,15 +42,22 @@
         text-decoration: underline;
     }
 
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
     .footer {
         text-align: center;
         padding: 20px 0;
-        background-color: #eaeaea;
+        background-color: #333;
+        color: #fff;
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
-        color: #777;
     }
 </style>
 
@@ -51,10 +65,11 @@
     <h1>Welcome to Canvas Chronicles</h1>
     <p>Discover insights, stories, and experiences. Dive into the world of art development, art technology, 
         AI-generated art, and more!</p>
-    <!-- <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> -->
-    
-    <!-- Image container -->
     <div class="image-container">
         <img src="~/images/homepage_1.png" alt="Art, Technology, and Development">
     </div>
+</div>
+
+<div class="footer">
+    Canvas Chronicles © 2024
 </div>
