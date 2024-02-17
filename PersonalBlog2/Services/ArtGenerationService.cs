@@ -1,3 +1,6 @@
+/*
+ * DEPRECATED: This service is currently not in use.
+ */
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
