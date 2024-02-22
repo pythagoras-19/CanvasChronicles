@@ -1,14 +1,33 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PersonalBlog2.Models; 
 
 namespace PersonalBlog2.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
 
     public DbSet<User> Users { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Configure AspNetRoles
+        modelBuilder.Entity<IdentityRole>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnType("varchar(255)").IsRequired();
+        });
+
+        // Configure AspNetUsers (if you have customized the User class)
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.Id).HasColumnType("varchar(255)").IsRequired();
+        });
+
+    }
 }
