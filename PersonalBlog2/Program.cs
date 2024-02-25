@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PersonalBlog2.Data;
+using PersonalBlog2.DataAccess;
 using PersonalBlog2.Models;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
@@ -38,26 +39,10 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Test db connection
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        if (context.Database.CanConnect())
-        {
-            Console.WriteLine("Successfully connected to the database.");
-        }
-        else
-        {
-            Console.WriteLine("Failed to connect to the database.");
-        }
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"An error occurred while connecting to the database: {ex.Message}");
-    }
-}
+var tester = new DatabaseConnectionTest(connectionString);
+bool isConnected = tester.IsDatabaseConnected();
+Console.WriteLine(isConnected ? "Connected to the database." : "Failed to connect to the database.");
+
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
