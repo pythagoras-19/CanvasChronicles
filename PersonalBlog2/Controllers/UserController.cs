@@ -45,4 +45,10 @@ public class UserController : Controller
         var users = _dataQueryTest.GetAllUsers();
         return Json(users);
     }
+    
+    public async Task<IActionResult> TestQuery()
+    {
+        var users = await _context.Users.ToListAsync();
+        return Json(users); 
+    }
 }
