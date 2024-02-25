@@ -17,13 +17,11 @@ public class ApplicationDbContext : IdentityDbContext<User>
     {
         base.OnModelCreating(modelBuilder);
 
-        // Configure AspNetRoles
         modelBuilder.Entity<IdentityRole>(entity =>
         {
             entity.Property(e => e.Id).HasColumnType("varchar(255)").IsRequired();
         });
 
-        // Configure AspNetUsers (if you have customized the User class)
         modelBuilder.Entity<User>(entity =>
         {
             entity.Property(e => e.Id).HasColumnType("varchar(255)").IsRequired();
