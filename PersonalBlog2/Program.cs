@@ -43,6 +43,24 @@ var tester = new DatabaseConnectionTest(connectionString);
 bool isConnected = tester.IsDatabaseConnected();
 Console.WriteLine(isConnected ? "Connected to the database." : "Failed to connect to the database.");
 
+// Create a scope to get scoped services
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var dbContext = services.GetRequiredService<ApplicationDbContext>();
+        var posts = dbContext.Users.ToList(); // Assuming you have a Users DbSet and want to list Users not Posts
+        Console.WriteLine($"There are {posts.Count} users in the database.");
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while querying the database.");
+    }
+}
+
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

@@ -1,0 +1,26 @@
+@model List<User>
+
+<h2>Users List</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>@user.PasswordHash</td>
+            <td>@user.CreatedAt</td>
+            <td>@user.LastModified</td>
+        </tr>
+    }
+    </tbody>
+</table>
