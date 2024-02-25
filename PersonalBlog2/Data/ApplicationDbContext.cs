@@ -26,6 +26,5 @@ public class ApplicationDbContext : IdentityDbContext<User>
         {
             entity.Property(e => e.Id).HasColumnType("varchar(255)").IsRequired();
         });
-
     }
 }
