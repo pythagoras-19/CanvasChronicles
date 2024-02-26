@@ -1,7 +1,7 @@
 using MySql.Data.MySqlClient;
 using System;
 
-namespace PersonalBlog2.DataAccess; 
+namespace CanvasChronicles.DataAccess; 
 
 public class DatabaseConnectionTest {
     private string _connectionString;

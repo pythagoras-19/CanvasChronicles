@@ -1,9 +1,9 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using PersonalBlog2.Models;
+using CanvasChronicles.Models;
 
-namespace PersonalBlog2.DataAccess; 
+namespace CanvasChronicles.DataAccess; 
 
 public class DataQueryTest {
     private readonly string _connectionString;

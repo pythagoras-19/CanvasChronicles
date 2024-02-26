@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace PersonalBlog2.Models;
+namespace CanvasChronicles.Models;
 
 public class RegisterViewModel
 {

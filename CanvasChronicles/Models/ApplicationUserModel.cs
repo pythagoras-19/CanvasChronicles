@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace PersonalBlog2.Models;
+namespace CanvasChronicles.Models;
 
 public class ApplicationUserModel : IdentityUser
 {

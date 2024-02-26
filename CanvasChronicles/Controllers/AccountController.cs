@@ -1,9 +1,10 @@
 // TODO: Maybe need to get rid of me!
+
+using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using PersonalBlog2.Models;
 
-namespace PersonalBlog2.Controllers;
+namespace CanvasChronicles.Controllers;
 
 public class AccountController : Controller
 {

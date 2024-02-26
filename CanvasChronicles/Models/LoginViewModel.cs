@@ -1,4 +1,4 @@
-namespace PersonalBlog2.Models;
+namespace CanvasChronicles.Models;
 
 public class LoginViewModel
 {

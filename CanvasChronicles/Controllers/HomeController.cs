@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
+using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
-using PersonalBlog2.Models;
 
-namespace PersonalBlog2.Controllers;
+namespace CanvasChronicles.Controllers;
 
 public class HomeController : Controller
 {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PersonalBlog2.Migrations
+namespace CanvasChronicles.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

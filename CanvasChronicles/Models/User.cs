@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace PersonalBlog2.Models;
+namespace CanvasChronicles.Models;
 
 public class User: IdentityUser
 {

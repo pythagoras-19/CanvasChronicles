@@ -4,8 +4,8 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>aspnet-PersonalBlog2-3E6978A0-D3B4-4DC9-A7AF-8B8FBB56ADE5</UserSecretsId>
-        <RootNamespace>PersonalBlog2</RootNamespace>
+        <UserSecretsId>aspnet-CanvasChronicles-3E6978A0-D3B4-4DC9-A7AF-8B8FBB56ADE5</UserSecretsId>
+        <RootNamespace>CanvasChronicles</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

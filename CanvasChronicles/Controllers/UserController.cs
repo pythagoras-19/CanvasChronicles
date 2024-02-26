@@ -1,12 +1,9 @@
+using CanvasChronicles.Data;
+using CanvasChronicles.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using PersonalBlog2.Data;
-using PersonalBlog2.DataAccess;
-using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
 
-namespace PersonalBlog2.Controllers;
+namespace CanvasChronicles.Controllers;
 
 public class UserController : Controller
 {

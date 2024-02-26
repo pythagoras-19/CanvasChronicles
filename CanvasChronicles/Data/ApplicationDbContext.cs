@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using CanvasChronicles.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using PersonalBlog2.Models; 
 
-namespace PersonalBlog2.Data;
+namespace CanvasChronicles.Data;
 
 public class ApplicationDbContext : IdentityDbContext<User>
 {

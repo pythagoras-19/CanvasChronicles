@@ -1,4 +1,4 @@
-namespace PersonalBlog2.Controllers; 
+namespace CanvasChronicles.Controllers; 
 
 public class PostController {
 }
