@@ -51,7 +51,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var dbContext = services.GetRequiredService<ApplicationDbContext>();
-        var posts = dbContext.Users.ToList(); // Assuming you have a Users DbSet and want to list Users not Posts
+        var posts = dbContext.Users.ToList(); 
         Console.WriteLine($"There are {posts.Count} users in the database.");
     }
     catch (Exception ex)
