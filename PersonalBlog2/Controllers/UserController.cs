@@ -17,10 +17,8 @@ public class UserController : Controller
     public UserController(ApplicationDbContext context, IConfiguration configuration)
     {
         _context = context;
-        // retrieve it from configuration
-        _configuration = configuration; // Set the configuration
+        _configuration = configuration;
         
-        // Access the connection string from configuration
         var connectionString = _configuration.GetConnectionString("DefaultConnection");
         
         _dataQueryTest = new DataQueryTest(connectionString: connectionString);
