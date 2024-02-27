@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using CanvasChronicles.Data;
 using CanvasChronicles.DataAccess;
 using CanvasChronicles.Models;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
