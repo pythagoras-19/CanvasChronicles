@@ -2,8 +2,9 @@
 
 <form asp-action="Login" method="post">
     <div class="form-group">
+        <p id="verificationMessage" style="color: green;">Login Page Verified!</p>
         <label asp-for="Username">Enter Username:</label>
-        <input asp-for="Username" class="form-control" />
+        <input asp-for="Username" class="form-control"/>
     </div>
     <div class="form-group">
         <label asp-for="Password">Enter Password:</label>

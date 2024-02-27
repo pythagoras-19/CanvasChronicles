@@ -8,20 +8,23 @@ namespace CanvasChronicles.Controllers;
 
 public class AccountController : Controller
 {
+    private readonly ILogger<AccountController> _logger;
     private readonly UserManager<ApplicationUserModel> _userManager;
     private readonly SignInManager<ApplicationUserModel> _signInManager;
-    public AccountController(UserManager<ApplicationUserModel> userManager, 
-        SignInManager<ApplicationUserModel> signInManager)
+    public AccountController(
+        UserManager<ApplicationUserModel> userManager, 
+        SignInManager<ApplicationUserModel> signInManager,
+        ILogger<AccountController> logger)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _logger = logger;
     }
     // GET: Account/Login
     public IActionResult Login()
     {
         return View();
     }
-
     // POST: Account/Login
     [HttpPost]
     public async Task <IActionResult> Login(string username, string password)
@@ -40,7 +43,13 @@ public class AccountController : Controller
             return View();
         }
     }
-    // Register
+    // GET: Account/Register
+    public IActionResult Register()
+    {
+        _logger.LogInformation("Register page accessed."); // Log access to register page
+        return View();
+    }
+    // POST: Account/Register
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
@@ -51,14 +60,16 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
-                //  TODO: Log the user in or redirect to a different page
-                //  TODO: return RedirectToAction("Index", "Home");
+                _logger.LogInformation($"New user registered: {model.Email}");
+                // TODO: Log the user in or redirect to a different page
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
+                    _logger.LogWarning($"Registration failed: {error.Description}");
                 }
             }
         }
