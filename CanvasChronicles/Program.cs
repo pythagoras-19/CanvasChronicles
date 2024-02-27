@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using CanvasChronicles.Data;
 using CanvasChronicles.DataAccess;
 using CanvasChronicles.Models;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services
-    .AddDefaultIdentity<ApplicationUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Register MVC
@@ -50,7 +51,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var dbContext = services.GetRequiredService<ApplicationDbContext>();
-        var posts = dbContext.Users.ToList(); 
+        var posts = dbContext.Users.ToList();
         Console.WriteLine($"There are {posts.Count} users in the database.");
     }
     catch (Exception ex)
@@ -71,6 +72,7 @@ else
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

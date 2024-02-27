@@ -1,5 +1,3 @@
-// TODO: Maybe need to get rid of me!
-
 using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
@@ -9,16 +7,17 @@ namespace CanvasChronicles.Controllers;
 public class AccountController : Controller
 {
     private readonly ILogger<AccountController> _logger;
-    private readonly UserManager<ApplicationUserModel> _userManager;
-    private readonly SignInManager<ApplicationUserModel> _signInManager;
+    private readonly UserManager<User> _userManager;
+    private readonly SignInManager<User> _signInManager;
     public AccountController(
-        UserManager<ApplicationUserModel> userManager, 
-        SignInManager<ApplicationUserModel> signInManager,
+        UserManager<User> userManager, 
+        SignInManager<User> signInManager,
         ILogger<AccountController> logger)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _logger = logger;
+        _logger.LogInformation("AccountController created.");
     }
     // GET: Account/Login
     public IActionResult Login()
@@ -55,7 +54,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new ApplicationUserModel { UserName = model.Email };
+            var user = new User { UserName = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -75,7 +74,7 @@ public class AccountController : Controller
         }
 
         // If we got this far, something failed, redisplay form
+        _logger.LogWarning("Registration failed: Invalid model state.");
         return View(model);
     }
-
 }
