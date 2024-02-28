@@ -30,12 +30,6 @@ builder.Services
 // Register MVC
 builder.Services.AddControllersWithViews();
 
-// Register background service 
-/*
- * TODO: Eliminate the ArtGenerationService from the application
- */
-// builder.Services.AddHostedService<ArtGenerationService>(); 
-
 var app = builder.Build();
 
 // Test db connection
