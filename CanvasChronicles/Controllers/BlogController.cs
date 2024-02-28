@@ -1,7 +1,6 @@
 using CanvasChronicles.Data;
 using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace CanvasChronicles.Controllers; 
 
