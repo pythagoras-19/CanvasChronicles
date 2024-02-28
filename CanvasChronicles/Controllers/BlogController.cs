@@ -1,6 +1,7 @@
 using CanvasChronicles.Data;
 using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CanvasChronicles.Controllers; 
 
@@ -26,10 +27,32 @@ public class BlogController : Controller
     {
         if (ModelState.IsValid)
         {
-            _context.Add(blogPost);
+            _context.BlogPosts.Add(blogPost);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index)); 
         }
         return View(blogPost);
+    }
+
+    // This method is for demonstration and should NOT be exposed in production without proper modifications.
+   [HttpGet]
+    public async Task<IActionResult> AddSampleBlogPost()
+    {
+        _logger.LogInformation("Adding sample blog post.");
+        var newBlogPost = new BlogPost
+        {
+            Title = "Sample Blog Post",
+            Content = "This is a sample blog post.",
+            Created = DateTime.Now,
+            Updated = DateTime.Now,
+            Author = "Sample Author"
+        };
+
+        _context.BlogPosts.Add(newBlogPost);
+        await _context.SaveChangesAsync();
+        
+        _logger.LogInformation("Sample blog post added.");
+
+        return RedirectToAction(nameof(Index));
     }
 }
