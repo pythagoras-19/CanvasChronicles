@@ -1,6 +1,6 @@
 namespace CanvasChronicles.Models;
 
-public class LoginViewModel
+public class LoginModel
 {
     public string Username { get; set; }
     public string Password { get; set; }
