@@ -1,7 +1,14 @@
 @{
     ViewData["Title"] = "Blog";
+    var currentDate = DateTime.Now.ToString("MM/dd/yyyy");
 }
 
-<h1>@ViewData["Title"]</h1>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>@ViewData["Title"]</h1>
+    <div style="text-align: right;">
+        @currentDate
+    </div>
+</div>
 
 <p>Welcome to our Canvas Chronicles  blog! Here you'll find the latest updates, stories, and insights related to AI generated art.</p>
+<p>Posts will appear in reverse chronological order.</p>
