@@ -6,27 +6,20 @@
 
 <h2>Create Post</h2>
 
-@if (!User.Identity.IsAuthenticated)
-{
-    <p>Please <a asp-controller="Account" asp-action="Login">log in</a> to create a post.</p>
-}
-else
-{
-    <form asp-controller="Blog" asp-action="Create" method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-        <div class="form-group">
-            <label asp-for="Title">Title</label>
-            <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
-        
-        <div class="form-group">
-            <label asp-for="Content">Content</label>
-            <textarea asp-for="Content" class="form-control"></textarea>
-            <span asp-validation-for="Content" class="text-danger"></span>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-}
+<form asp-controller="Blog" asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

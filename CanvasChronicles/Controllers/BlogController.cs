@@ -1,6 +1,8 @@
 using CanvasChronicles.Data;
 using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 
 namespace CanvasChronicles.Controllers; 
 
@@ -15,8 +17,10 @@ public class BlogController : Controller
         _context = context;
     }
     
+   [HttpGet]
     public IActionResult Create()
     {
+        _logger.LogInformation("Create blog post page visited.");
         // return the view for the form to create a new blog post.
         //  prepare any necessary data for the form here before returning
         return View();
@@ -31,14 +35,48 @@ public class BlogController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(BlogPost blogPost)
     {
+        ModelState.Remove("Author");
+        _logger.LogInformation("Create blog post form called.");
+        blogPost.Author = User.Identity.Name ?? "Anonymous";
+        _logger.LogInformation($"User {blogPost.Author} is creating a blog post.");
         if (ModelState.IsValid)
         {
+            if (blogPost.Author == "Anonymous")
+            {
+                _logger.LogInformation("Could not get the correct author.\nAnonymous user created a blog post.");
+            }
+            else
+            {
+                _logger.LogInformation($"User {blogPost.Author} created a blog post.");
+            }
+
+            // Set the created and updated dates to now
+            blogPost.Created = DateTime.UtcNow;
+            blogPost.Updated = DateTime.UtcNow;
+            
+            // log the data to be put in the database
+            _logger.LogInformation($"Title: {blogPost.Title}\n" +
+                                   $"Content: " +
+                                   $"{blogPost.Content}\n" +
+                                   $"Created: {blogPost.Created}\n" +
+                                   $"Updated: {blogPost.Updated}\n" +
+                                   $"Author: {blogPost.Author}");
+
             _context.BlogPosts.Add(blogPost);
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Blog post saved to database.");
             return RedirectToAction(nameof(Index)); 
+        }
+        else
+        {
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                _logger.LogError($"Validation Error: {error.ErrorMessage}");
+            }
         }
         return View(blogPost);
     }
+
 
     // TEST ONLY: This method is for demonstration and should NOT be exposed in production without proper modifications.
    [HttpGet]
