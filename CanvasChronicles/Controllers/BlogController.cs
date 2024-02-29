@@ -15,6 +15,13 @@ public class BlogController : Controller
         _context = context;
     }
     
+    public IActionResult Create()
+    {
+        // return the view for the form to create a new blog post.
+        //  prepare any necessary data for the form here before returning
+        return View();
+    }
+
     public IActionResult Index()
     {
         _logger.LogInformation("Blog index page visited.");
@@ -33,7 +40,7 @@ public class BlogController : Controller
         return View(blogPost);
     }
 
-    // This method is for demonstration and should NOT be exposed in production without proper modifications.
+    // TEST ONLY: This method is for demonstration and should NOT be exposed in production without proper modifications.
    [HttpGet]
     public async Task<IActionResult> AddSampleBlogPost()
     {
