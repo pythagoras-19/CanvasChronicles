@@ -1,15 +1,34 @@
+<!-- For iterating through the list of blog posts, using IEnumerable -->
+@model IEnumerable<CanvasChronicles.Models.BlogPost>
 @{
     ViewData["Title"] = "Blog";
     var currentDate = DateTime.Now.ToString("MM/dd/yyyy");
 }
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
-    <h1>@ViewData["Title"]</h1>
-    <div style="text-align: right;">
-        <p>Today's Date: @currentDate</p>
-        <input type="date" id="simple-calendar">
+<div class="container">
+    <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>@ViewData["Title"]</h1>
+        <div style="text-align: right;">
+            <p>Today's Date: @currentDate</p>
+            <input type="date" id="simple-calendar">
+        </div>
+    </div>
+
+    <p><strong>Welcome to our Canvas Chronicles blog! Here you'll find the latest updates, stories, and insights related to AI-generated art.</strong></p>
+    <p>Posts will appear in reverse chronological order.</p>
+
+    <!-- Display posts from BlogPosts table -->
+    <div class="posts">
+        @foreach (var post in Model)
+        {
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-body">
+                    <h5 class="card-title">@post.Title</h5>
+                    <p class="card-text">@post.Content</p>
+                    <p class="text-muted">Posted on: @post.Created.ToString("MM/dd/yyyy")</p>
+                    <p class="text-muted">Author: @post.Author</p>
+                </div>
+            </div>
+        }
     </div>
 </div>
-
-<p><strong>Welcome to our Canvas Chronicles  blog! Here you'll find the latest updates, stories, and insights related to AI generated art.</strong></p>
-<p>Posts will appear in reverse chronological order.</p>

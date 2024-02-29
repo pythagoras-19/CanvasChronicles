@@ -22,14 +22,27 @@ public class BlogController : Controller
     {
         _logger.LogInformation("Create blog post page visited.");
         // return the view for the form to create a new blog post.
-        //  prepare any necessary data for the form here before returning
+        // prepare any necessary data for the form here before returning
         return View();
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         _logger.LogInformation("Blog index page visited.");
-        return View();
+        try
+        {
+            var blogPosts = await _context.BlogPosts.ToListAsync();
+            _logger.LogInformation("Blog posts retrieved from database.");
+            return View(blogPosts);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "An error occurred while retrieving blog posts from the database.");
+            ViewBag.ErrorMessage = "An error occurred while retrieving blog posts from the database.Please try again later or contact support.";
+           // Console.WriteLine(e);
+           // throw;
+           return View(new List<BlogPost>());
+        }
     }
     
     [HttpPost]
