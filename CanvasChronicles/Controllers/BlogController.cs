@@ -31,7 +31,6 @@ public class BlogController : Controller
         _logger.LogInformation("Blog index page visited.");
         try
         {
-            // var blogPosts = await _context.BlogPosts.ToListAsync();
             var blogPosts = await _context.BlogPosts.OrderByDescending(p => p.Created).ToListAsync();
             _logger.LogInformation("Blog posts retrieved from database.");
             return View(blogPosts);
