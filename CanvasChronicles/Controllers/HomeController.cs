@@ -29,7 +29,6 @@ public class HomeController : Controller
     {
         if (ModelState.IsValid)
         {
-            // TODO: Save post to database
             _logger.LogInformation("Title: {Title}", post.Title);
             _logger.LogInformation("Content: {Content}", post.Content);
             
