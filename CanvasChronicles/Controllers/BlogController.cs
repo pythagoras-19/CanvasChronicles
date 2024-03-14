@@ -1,7 +1,6 @@
 using CanvasChronicles.Data;
 using CanvasChronicles.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace CanvasChronicles.Controllers; 
@@ -21,8 +20,6 @@ public class BlogController : Controller
     public IActionResult Create()
     {
         _logger.LogInformation("Create blog post page visited.");
-        // return the view for the form to create a new blog post.
-        // prepare any necessary data for the form here before returning
         return View();
     }
 
@@ -39,9 +36,7 @@ public class BlogController : Controller
         {
             _logger.LogError(e, "An error occurred while retrieving blog posts from the database.");
             ViewBag.ErrorMessage = "An error occurred while retrieving blog posts from the database.Please try again later or contact support.";
-           // Console.WriteLine(e);
-           // throw;
-           return View(new List<BlogPost>());
+            return View(new List<BlogPost>());
         }
     }
     
